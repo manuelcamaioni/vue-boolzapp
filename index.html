@@ -32,13 +32,9 @@
         <div id="app" class="d-flex">
             <div id="contacts-bar" class="col-4 h-100 d-flex flex-column">
                 <div
-                    id="user-container"
-                    class="d-flex justify-content-between align-items-center"
+                    class="user-container d-flex justify-content-between align-items-center"
                 >
-                    <div
-                        id="user-profile"
-                        class="d-flex align-items-center p-2"
-                    >
+                    <div class="user-profile d-flex align-items-center p-2">
                         <img src="img/avatar_7.jpg" alt="" />
                         <span class="ms-1">Manuel</span>
                     </div>
@@ -53,9 +49,51 @@
                         ></i>
                     </div>
                 </div>
-                <div id="toggle-msg-bar"></div>
-                <div id="search-container"></div>
-                <div id="contacts-list"></div>
+                <div
+                    id="toggle-msg-bar"
+                    class="d-flex align-items-center px-4 py-3"
+                >
+                    <i class="fa-solid fa-bell-slash fa-xl me-3"></i>
+                    <div class="toggle-msg-info d-flex flex-column">
+                        <span class="fw-bold"
+                            >Ricevi notifiche di nuovi messaggi</span
+                        >
+                        <a href="#" id="desktop-msg">
+                            <span class="fs-6"
+                                >Attiva notifiche desktop</span
+                            ></a
+                        >
+                    </div>
+                </div>
+                <div id="search-container" class="d-flex p-2">
+                    <div class="searchbar d-flex">
+                        <div
+                            class="col-2 m-glass d-flex align-items-center justify-content-center"
+                        >
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <div
+                            class="col-10 d-flex align-items-center justify-content-center px-2"
+                        >
+                            <input
+                                type="text"
+                                placeholder="Cerca o inizia una nuova chat"
+                                id="input-searchbar"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div id="contacts-list" class="d-flex flex-column">
+                    <div
+                        class="contact-container d-flex justify-content-between align-items-center"
+                        v-for="contact in contacts"
+                    >
+                        <div class="user-profile d-flex align-items-center p-2">
+                            <img :src="contact.avatar" alt="" />
+                            <span class="ms-1">{{contact.name}}</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-8 h-100"></div>
         </div>

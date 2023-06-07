@@ -21,16 +21,15 @@ body{
     border-right: 1px solid #d4d4d4
 }
 
-#user-container{
+.user-container{
     height: 60px;
 }
 
-#user-profile{
-    width: 30%;
+.user-profile{
     height: 100%;
 }
 
-#user-profile img{
+.user-profile img{
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -44,8 +43,37 @@ body{
 
 #search-container{
     height: 50px;
+    border-bottom: 1px solid #d4d4d4;
 }
 
 #contacts-list{
     height: 100%;
+    overflow-y: hidden;
+}
+
+.contact-container{
+    height: calc(100% / 8);
+}
+
+#desktop-msg{
+    color: grey;
+}
+
+.fa-bell-slash{
+    color: white;
+}
+
+.searchbar{
+    background-color: white;
+    width: 100%;
+    border-radius: .25rem;
+    border: 1px solid #d4d4d4
+}
+
+.searchbar .m-glass{
+    border-right: 1px solid #d4d4d4;
+}
+
+.searchbar #input-searchbar{
+    width: 100%;
 }
