@@ -115,3 +115,7 @@ i{
 input{
     background-color: #eaeaea;
 }
+
+input::placeholder{
+    font-size: .9rem;
+}
