@@ -29,87 +29,155 @@
         <title>Vue Boolzapp</title>
     </head>
     <body>
-        <div id="app" class="d-flex card">
-            <div id="contacts-bar" class="col-4 h-100 d-flex flex-column">
-                <div
-                    class="user-container d-flex justify-content-between align-items-center"
-                >
-                    <div class="user-profile d-flex align-items-center p-2">
-                        <img src="img/avatar_7.jpg" alt="" />
-                        <span class="ms-1">Manuel</span>
-                    </div>
+        <div id="app" class="card">
+            <div class="container">
+                <div class="row">
                     <div
-                        id="user-actions"
-                        class="d-flex align-items-center p-2"
-                    >
-                        <i class="fa-regular fa-circle fa-lg me-3"></i
-                        ><i class="fa-regular fa-message fa-lg me-3"></i
-                        ><i
-                            class="fa-solid fa-ellipsis-vertical fa-lg me-2"
-                        ></i>
-                    </div>
-                </div>
-                <div
-                    id="toggle-msg-bar"
-                    class="d-flex align-items-center px-4 py-3"
-                >
-                    <i class="fa-solid fa-bell-slash fa-xl me-3"></i>
-                    <div class="toggle-msg-info d-flex flex-column">
-                        <span class="fw-bold"
-                            >Ricevi notifiche di nuovi messaggi</span
-                        >
-                        <a href="#" id="desktop-msg">
-                            <span class="fs-6"
-                                >Attiva notifiche desktop</span
-                            ></a
-                        >
-                    </div>
-                </div>
-                <div id="search-container" class="d-flex p-2">
-                    <div class="searchbar d-flex">
-                        <div
-                            class="col-2 m-glass d-flex align-items-center justify-content-center"
-                        >
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </div>
-                        <div
-                            class="col-10 d-flex align-items-center justify-content-center px-2"
-                        >
-                            <input
-                                type="text"
-                                placeholder="Cerca o inizia una nuova chat"
-                                id="input-searchbar"
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div id="contacts-list" class="d-flex flex-column">
-                    <div
-                        class="contact-container d-flex justify-content-between align-items-center"
-                        v-for="contact in contacts"
+                        id="contacts-bar"
+                        class="col-4 h-100 d-flex flex-column px-0"
                     >
                         <div
-                            class="contact-profile d-flex align-items-center p-2 position-relative"
+                            class="user-container d-flex justify-content-between align-items-center"
                         >
-                            <img :src="contact.avatar" alt="" />
-
-                            <div class="d-flex flex-column ms-1">
-                                <span>{{contact.name}}</span>
-                                <span class="minor-text"
-                                    >Ultimo messaggio inviato</span
+                            <div
+                                class="user-profile d-flex align-items-center p-2"
+                            >
+                                <img src="img/avatar_7.jpg" alt="" />
+                                <span class="ms-1">Manuel</span>
+                            </div>
+                            <div
+                                id="user-actions"
+                                class="d-flex align-items-center p-2"
+                            >
+                                <i class="fa-regular fa-circle fa-lg me-3"></i
+                                ><i class="fa-regular fa-message fa-lg me-3"></i
+                                ><i
+                                    class="fa-solid fa-ellipsis-vertical fa-lg me-2"
+                                ></i>
+                            </div>
+                        </div>
+                        <div
+                            id="toggle-msg-bar"
+                            class="d-flex align-items-center px-4 py-3"
+                        >
+                            <i class="fa-solid fa-bell-slash fa-xl me-3"></i>
+                            <div class="toggle-msg-info d-flex flex-column">
+                                <span class="fw-bold fs-6"
+                                    >Ricevi notifiche di nuovi messaggi</span
+                                >
+                                <a href="#" id="desktop-msg">
+                                    <span class="fs-6"
+                                        >Attiva notifiche desktop</span
+                                    ></a
                                 >
                             </div>
-                            <span class="minor-text position-absolute timestamp"
-                                >12:00</span
+                        </div>
+                        <div id="search-container" class="d-flex p-2">
+                            <div class="searchbar d-flex">
+                                <div
+                                    class="col-2 m-glass d-flex align-items-center justify-content-center"
+                                >
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </div>
+                                <div
+                                    class="col-10 d-flex align-items-center justify-content-center px-2"
+                                >
+                                    <input
+                                        type="text"
+                                        placeholder="Cerca o inizia una nuova chat"
+                                        id="input-searchbar"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div id="contacts-list" class="d-flex flex-column">
+                            <div
+                                class="contact-container d-flex justify-content-between align-items-center"
+                                v-for="contact in contacts"
                             >
+                                <div
+                                    class="contact-profile d-flex align-items-center p-2 position-relative"
+                                >
+                                    <img :src="contact.avatar" alt="" />
+                                    <div class="d-flex flex-column ms-1">
+                                        <span>{{contact.name}}</span>
+                                        <span class="minor-text"
+                                            >Ultimo messaggio inviato</span
+                                        >
+                                    </div>
+                                    <span
+                                        class="minor-text position-absolute timestamp"
+                                        >12:00</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8 h-100 px-0">
+                        <div>
+                            <div
+                                class="user-container d-flex justify-content-between align-items-center"
+                            >
+                                <div
+                                    class="user-profile d-flex align-items-center p-2"
+                                >
+                                    <img src="img/avatar_1.jpg" alt="" />
+                                    <div class="d-flex flex-column ms-2">
+                                        <span>Michele</span>
+                                        <span class="minor-text"
+                                            >Ultimo accesso oggi alle
+                                            12:00</span
+                                        >
+                                    </div>
+                                </div>
+                                <div
+                                    id="user-actions"
+                                    class="d-flex align-items-center p-2"
+                                >
+                                    <i
+                                        class="fa-solid fa-magnifying-glass fa-lg me-3"
+                                    ></i
+                                    ><i
+                                        class="fa-solid fa-paperclip fa-lg me-3"
+                                    ></i
+                                    ><i
+                                        class="fa-solid fa-ellipsis-vertical fa-lg me-2"
+                                    ></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="display-msg" class="w-100"></div>
+                        <div id="input-bar" class="d-flex">
+                            <div class="container h-100">
+                                <div class="row h-100">
+                                    <div
+                                        class="col d-flex justify-content-center align-items-center h-100"
+                                    >
+                                        <i
+                                            class="fa-regular fa-face-smile fa-xl"
+                                        ></i>
+                                    </div>
+                                    <div
+                                        class="col-10 h-100 d-flex align-items-center p-2"
+                                    >
+                                        <input
+                                            type="text"
+                                            placeholder="Scrivi un messaggio"
+                                            class="w-100 p-2"
+                                        />
+                                    </div>
+                                    <div
+                                        class="col h-100 d-flex justify-content-center align-items-center"
+                                    >
+                                        <i
+                                            class="fa-solid fa-microphone fa-xl"
+                                        ></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-8 h-100">
-                <h1>ciaoooo</h1>
-                <div></div>
-                <div></div>
             </div>
         </div>
     </body>

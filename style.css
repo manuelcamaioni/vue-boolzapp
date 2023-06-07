@@ -9,6 +9,10 @@ body{
     background: linear-gradient(180deg, #009688 20%, #dadbd2 20%);
 }
 
+i{
+    color: grey;
+}
+
 
 #app{
     width: 70%;
@@ -47,7 +51,7 @@ body{
 }
 
 #contacts-list{
-    height: 100%;
+    height: calc(800px - 190px);
     overflow-y: hidden;
 }
 
@@ -63,6 +67,9 @@ body{
 #desktop-msg{
     color: grey;
 }
+#desktop-msg span{
+    font-size: .5rem;
+}
 
 .fa-bell-slash{
     color: white;
@@ -72,7 +79,7 @@ body{
     background-color: white;
     width: 100%;
     border-radius: .25rem;
-    border: 1px solid #d4d4d4
+    background-color: #eaeaea;
 }
 
 .searchbar .m-glass{
@@ -91,4 +98,20 @@ body{
 .timestamp{
     top: 5%;
     right: 3%
+}
+
+#display-msg{
+    height: calc(800px - 130px);
+    background-image: url("https://i.pinimg.com/736x/7d/0e/70/7d0e709fd2c2555e075ae8b49368fb74.jpg");
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+#input-bar{
+    height: 70px;
+}
+
+input{
+    background-color: #eaeaea;
 }
