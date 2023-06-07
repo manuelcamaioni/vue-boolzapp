@@ -114,6 +114,7 @@ i{
 
 input{
     background-color: #eaeaea;
+    border-radius: .25rem;
 }
 
 input::placeholder{
