@@ -4,3 +4,48 @@
     border: 0;
     box-sizing: border-box;
 }
+
+body{
+    background: linear-gradient(180deg, #009688 20%, #dadbd2 20%);
+}
+
+
+#app{
+    width: 70%;
+    margin: 5rem auto;
+    height: 800px;
+    background-color: #eaeaea;
+}
+
+#contacts-bar{
+    border-right: 1px solid #d4d4d4
+}
+
+#user-container{
+    height: 60px;
+}
+
+#user-profile{
+    width: 30%;
+    height: 100%;
+}
+
+#user-profile img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#toggle-msg-bar{
+    background-color: #8edafc;
+    height: 80px;
+}
+
+#search-container{
+    height: 50px;
+}
+
+#contacts-list{
+    height: 100%;
+}
