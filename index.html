@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -88,14 +88,29 @@
                         class="contact-container d-flex justify-content-between align-items-center"
                         v-for="contact in contacts"
                     >
-                        <div class="user-profile d-flex align-items-center p-2">
+                        <div
+                            class="contact-profile d-flex align-items-center p-2 position-relative"
+                        >
                             <img :src="contact.avatar" alt="" />
-                            <span class="ms-1">{{contact.name}}</span>
+
+                            <div class="d-flex flex-column ms-1">
+                                <span>{{contact.name}}</span>
+                                <span class="minor-text"
+                                    >Ultimo messaggio inviato</span
+                                >
+                            </div>
+                            <span class="minor-text position-absolute timestamp"
+                                >12:00</span
+                            >
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-8 h-100"></div>
+            <div class="col-8 h-100">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     </body>
 </html>

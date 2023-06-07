@@ -29,7 +29,7 @@ body{
     height: 100%;
 }
 
-.user-profile img{
+.user-profile img, .contact-profile img{
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -54,6 +54,11 @@ body{
 .contact-container{
     height: calc(100% / 8);
 }
+.contact-profile{
+    height: 100%;
+    width: 100%;
+}
+
 
 #desktop-msg{
     color: grey;
@@ -76,4 +81,14 @@ body{
 
 .searchbar #input-searchbar{
     width: 100%;
+}
+
+.minor-text{
+    color: grey;
+    font-size: .8rem;
+}
+
+.timestamp{
+    top: 5%;
+    right: 3%
 }
