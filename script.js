@@ -7,6 +7,7 @@ createApp({
             newMsg: "",
             todayDate: new Date(),
             searchContact: "",
+            deleteAtIndex: "",
             contacts: [
                 {
                     name: "Michele",
@@ -231,6 +232,9 @@ createApp({
                     contact.visible = true;
                 }
             });
+        },
+        deleteMessage(index) {
+            this.deleteAtIndex = index;
         },
     },
 }).mount("#app");
