@@ -4,6 +4,8 @@ createApp({
     data() {
         return {
             activeIndex: 0,
+            newMsg: "",
+            todayDate: new Date(),
             contacts: [
                 {
                     name: "Michele",
@@ -177,6 +179,34 @@ createApp({
     methods: {
         selectContact(index) {
             this.activeIndex = index;
+        },
+        sendMessage() {
+            this.contacts[this.activeIndex].messages.push({
+                date: this.todayDate,
+                message: this.newMsg,
+                status: "sent",
+            });
+            this.newMsg = "";
+
+            setTimeout(this.sendMessageBack, 1000);
+        },
+
+        visibleTimeStamp(date) {
+            let subString = "";
+            if (date.length === 19) {
+                subString = date.substr(11, 5);
+            } else {
+                subString = date.toString().substr(16, 5);
+            }
+            return subString;
+        },
+
+        sendMessageBack() {
+            this.contacts[this.activeIndex].messages.push({
+                date: this.todayDate,
+                message: "ok",
+                status: "received",
+            });
         },
     },
 }).mount("#app");

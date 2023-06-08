@@ -18,15 +18,14 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-        <!-- VUE3 -->
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
         <link rel="stylesheet" href="style.css" />
         <script src="script.js" defer></script>
 
         <title>Vue Boolzapp</title>
     </head>
     <body>
+        <!-- VUE3 -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <div id="app" class="card">
             <div class="container-fluid p-0 m-0">
                 <div class="row m-0">
@@ -144,7 +143,7 @@
                                     {{object.message}}
                                     <span
                                         class="position-absolute timestamp-msg"
-                                        >{{object.date.substr(11, 5)}}</span
+                                        >{{visibleTimeStamp(object.date)}}</span
                                     >
                                 </p>
                             </div>
@@ -162,7 +161,9 @@
                                         <input
                                             type="text"
                                             placeholder="Scrivi un messaggio"
-                                            class="w-100 p-2" />
+                                            class="w-100 p-2"
+                                            v-model="newMsg"
+                                            @keyup.enter="sendMessage" />
                                     </div>
                                     <div
                                         class="col h-100 d-flex justify-content-center align-items-center">
