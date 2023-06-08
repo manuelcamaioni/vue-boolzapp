@@ -30,7 +30,7 @@ i{
     height: 60px;
 }
 
-.user-profile{
+.user-profile.visible{
     height: 100%;
 }
 
@@ -60,12 +60,7 @@ i{
     overflow-y: hidden;
 }
 
-.contact-container{
-    height: calc(100% / 8);
-}
-
 .contact-profile{
-    height: 100%;
     width: 100%;
 }
 

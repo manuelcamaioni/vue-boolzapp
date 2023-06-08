@@ -26,7 +26,7 @@
     <body>
         <!-- VUE3 -->
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <div id="app" class="card">
+        <div id="app" class="card" @click="addContacts">
             <div class="container-fluid p-0 m-0">
                 <div class="row m-0">
                     <div
@@ -75,34 +75,32 @@
                                     class="col-10 d-flex align-items-center justify-content-center px-2">
                                     <input
                                         type="text"
+                                        v-model="searchContact"
                                         placeholder="Cerca o inizia una nuova chat"
-                                        id="input-searchbar"
-                                        @click="removeContacts"
-                                        v-model="searchContact" />
+                                        @click.stop="removeContacts"
+                                        @keyup="addContactswhenSearching"
+                                        id="input-searchbar" />
                                 </div>
                             </div>
                         </div>
                         <div id="contacts-list" class="d-flex flex-column">
                             <div
-                                class="contact-container d-flex justify-content-between align-items-center"
-                                v-for="(contact,index) in contacts">
-                                <div
-                                    class="contact-profile d-flex align-items-center p-2 position-relative"
-                                    @click="selectContact(index)"
-                                    :class="contacts.indexOf(contact) === activeIndex ? 'bg-grey' : ''"
-                                    @keyup="addContactswhenSearching">
-                                    <img :src="contact.avatar" alt="" />
-                                    <div class="d-flex flex-column ms-1">
-                                        <span>{{contact.name}}</span>
-                                        <span class="minor-text"
-                                            >Ultimo messaggio inviato</span
-                                        >
-                                    </div>
-                                    <span
-                                        class="minor-text position-absolute timestamp"
-                                        >12:00</span
+                                class="contact-profile d-flex align-items-center p-2 position-relative"
+                                v-for="(contact,index) in contacts"
+                                @click="selectContact(index)"
+                                :class="contact.visible === true ? '' : 'd-none', contacts.indexOf(contact) === activeIndex ? 'bg-grey' : ''"
+                                @keyup="addContactswhenSearching">
+                                <img :src="contact.avatar" alt="" />
+                                <div class="d-flex flex-column ms-1">
+                                    <span>{{contact.name}}</span>
+                                    <span class="minor-text"
+                                        >Ultimo messaggio inviato</span
                                     >
                                 </div>
+                                <span
+                                    class="minor-text position-absolute timestamp"
+                                    >12:00</span
+                                >
                             </div>
                         </div>
                     </div>

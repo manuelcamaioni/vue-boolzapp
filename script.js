@@ -211,24 +211,24 @@ createApp({
         },
 
         removeContacts() {
-            let deleteContacts = document.querySelectorAll(
-                "div.contact-profile"
-            );
-            deleteContacts.forEach((contact) => {
-                contact.classList.add("d-none");
-                if (contact.classList.contains("bg-grey")) {
-                    contact.classList.remove("bg-grey");
-                }
+            this.contacts.forEach((contact) => {
+                contact.visible = false;
+            });
+        },
+        addContacts() {
+            this.contacts.forEach((contact) => {
+                contact.visible = true;
             });
         },
 
         addContactswhenSearching() {
-            let deletedContacts = document.querySelectorAll(
-                "div.contact-profile"
-            );
-            deletedContacts.forEach((contact) => {
-                if (this.contacts.name.includes(this.searchContact)) {
-                    contact.classList.remove("d-none");
+            this.contacts.forEach((contact) => {
+                if (
+                    contact.name
+                        .toLowerCase()
+                        .includes(this.searchContact.toLowerCase())
+                ) {
+                    contact.visible = true;
                 }
             });
         },
