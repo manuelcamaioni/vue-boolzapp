@@ -76,18 +76,21 @@
                                     <input
                                         type="text"
                                         placeholder="Cerca o inizia una nuova chat"
-                                        id="input-searchbar" />
+                                        id="input-searchbar"
+                                        @click="removeContacts"
+                                        v-model="searchContact" />
                                 </div>
                             </div>
                         </div>
                         <div id="contacts-list" class="d-flex flex-column">
                             <div
                                 class="contact-container d-flex justify-content-between align-items-center"
-                                v-for="(contact,index) in contacts"
-                                :class="contacts.indexOf(contact) === activeIndex ? 'bg-grey' : ''">
+                                v-for="(contact,index) in contacts">
                                 <div
                                     class="contact-profile d-flex align-items-center p-2 position-relative"
-                                    @click="selectContact(index)">
+                                    @click="selectContact(index)"
+                                    :class="contacts.indexOf(contact) === activeIndex ? 'bg-grey' : ''"
+                                    @keyup="addContactswhenSearching">
                                     <img :src="contact.avatar" alt="" />
                                     <div class="d-flex flex-column ms-1">
                                         <span>{{contact.name}}</span>

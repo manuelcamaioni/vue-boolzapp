@@ -6,6 +6,7 @@ createApp({
             activeIndex: 0,
             newMsg: "",
             todayDate: new Date(),
+            searchContact: "",
             contacts: [
                 {
                     name: "Michele",
@@ -206,6 +207,29 @@ createApp({
                 date: this.todayDate,
                 message: "ok",
                 status: "received",
+            });
+        },
+
+        removeContacts() {
+            let deleteContacts = document.querySelectorAll(
+                "div.contact-profile"
+            );
+            deleteContacts.forEach((contact) => {
+                contact.classList.add("d-none");
+                if (contact.classList.contains("bg-grey")) {
+                    contact.classList.remove("bg-grey");
+                }
+            });
+        },
+
+        addContactswhenSearching() {
+            let deletedContacts = document.querySelectorAll(
+                "div.contact-profile"
+            );
+            deletedContacts.forEach((contact) => {
+                if (this.contacts.name.includes(this.searchContact)) {
+                    contact.classList.remove("d-none");
+                }
             });
         },
     },
