@@ -28,7 +28,7 @@
     </head>
     <body>
         <div id="app" class="card">
-            <div class="container p-0 m-0">
+            <div class="container-fluid p-0 m-0">
                 <div class="row m-0">
                     <div
                         id="contacts-bar"
@@ -84,9 +84,11 @@
                         <div id="contacts-list" class="d-flex flex-column">
                             <div
                                 class="contact-container d-flex justify-content-between align-items-center"
-                                v-for="contact in contacts">
+                                v-for="(contact,index) in contacts"
+                                :class="contacts.indexOf(contact) === activeIndex ? 'bg-grey' : ''">
                                 <div
-                                    class="contact-profile d-flex align-items-center p-2 position-relative">
+                                    class="contact-profile d-flex align-items-center p-2 position-relative"
+                                    @click="selectContact(index)">
                                     <img :src="contact.avatar" alt="" />
                                     <div class="d-flex flex-column ms-1">
                                         <span>{{contact.name}}</span>
@@ -107,10 +109,14 @@
                             <div
                                 class="user-container d-flex justify-content-between align-items-center">
                                 <div
-                                    class="user-profile d-flex align-items-center p-2">
-                                    <img src="img/avatar_1.jpg" alt="" />
+                                    class="d-flex align-items-center p-2 user-in-conv">
+                                    <img
+                                        :src="contacts[activeIndex].avatar"
+                                        alt="" />
                                     <div class="d-flex flex-column ms-2">
-                                        <span>Michele</span>
+                                        <span
+                                            >{{contacts[activeIndex].name}}</span
+                                        >
                                         <span class="minor-text"
                                             >Ultimo accesso oggi alle
                                             12:00</span
@@ -131,32 +137,14 @@
                         </div>
                         <div id="display-msg" class="w-100 px-3">
                             <div
-                                class="user-message d-flex justify-content-end align-items-center">
+                                class="d-flex"
+                                v-for="object in contacts[activeIndex].messages"
+                                :class="(object.status === 'sent') ? 'user-message' : 'user-2-message'">
                                 <p class="mb-0">
-                                    {{contacts[0].messages[0].message}}
+                                    {{object.message}}
                                     <span
                                         class="position-absolute timestamp-msg"
-                                        >12:00</span
-                                    >
-                                </p>
-                            </div>
-                            <div
-                                class="user-message d-flex justify-content-end align-items-center">
-                                <p class="mb-0">
-                                    {{contacts[0].messages[1].message}}
-                                    <span
-                                        class="position-absolute timestamp-msg"
-                                        >12:00</span
-                                    >
-                                </p>
-                            </div>
-                            <div
-                                class="user-2-message d-flex justify-content-start align-items-center">
-                                <p class="mb-0">
-                                    {{contacts[0].messages[2].message}}
-                                    <span
-                                        class="position-absolute timestamp-msg"
-                                        >12:00</span
+                                        >{{object.date.substr(11, 5)}}</span
                                     >
                                 </p>
                             </div>

@@ -34,6 +34,10 @@ i{
     height: 100%;
 }
 
+.contact-profile:hover{
+    background-color: rgb(209, 209, 209);
+}
+
 .user-profile img, .contact-profile img{
     width: 40px;
     height: 40px;
@@ -156,4 +160,27 @@ input:focus{
     right: 1%;
     font-size: .6rem;
     color: grey;
+}
+
+.user-2-message{
+    justify-content: start;
+}
+
+.user-message{
+    justify-content: end;
+}
+
+.user-in-conv{
+    height: 100%;
+}
+
+.user-in-conv img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.bg-grey{
+    background-color: rgb(209, 209, 209);
 }
