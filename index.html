@@ -126,9 +126,14 @@
                                         <span
                                             >{{contacts[activeIndex].name}}</span
                                         >
-                                        <span class="minor-text"
+                                        <span
+                                            v-if="!isWriting"
+                                            class="minor-text"
                                             >Ultimo accesso oggi alle
                                             12:00</span
+                                        >
+                                        <span v-else class="minor-text"
+                                            >Sta scrivendo...</span
                                         >
                                     </div>
                                 </div>

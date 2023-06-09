@@ -10,6 +10,7 @@ createApp({
             todayDate: new Date(),
             searchContact: "",
             deleteAtIndex: "",
+            isWriting: false,
             answers: [
                 "Nooo!",
                 "Tra poco arrivo",
@@ -206,6 +207,7 @@ createApp({
                 this.newMsg = "";
 
                 setTimeout(this.sendMessageBack, 1000);
+                this.isWriting = true;
             }
         },
 
@@ -221,13 +223,12 @@ createApp({
 
         sendMessageBack() {
             const randomNum = Math.floor(Math.random() * this.answers.length);
-
+            this.isWriting = false;
             this.contacts[this.activeIndex].messages.push({
                 date: this.todayDate,
                 message: this.answers[randomNum],
                 status: "received",
             });
-            console.log(randomNum);
         },
 
         removeContacts() {
