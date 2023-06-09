@@ -99,6 +99,7 @@
                                 <img :src="contact.avatar" alt="" />
                                 <div class="d-flex flex-column ms-1">
                                     <span>{{contact.name}}</span>
+
                                     <span class="minor-text"
                                         >{{contacts[index].messages[contacts[index].messages.length
                                         - 1].message}}</span
@@ -106,7 +107,8 @@
                                 </div>
                                 <span
                                     class="minor-text position-absolute timestamp"
-                                    >12:00</span
+                                    >{{visibleTimeStamp(contacts[index].messages[contacts[index].messages.length
+                                    - 1].date)}}</span
                                 >
                             </div>
                         </div>
