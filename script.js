@@ -10,6 +10,13 @@ createApp({
             todayDate: new Date(),
             searchContact: "",
             deleteAtIndex: "",
+            answers: [
+                "Nooo!",
+                "Tra poco arrivo",
+                "Sto cenando",
+                "I limoni signoraaaaa!",
+                "Diamine",
+            ],
             contacts: [
                 {
                     name: "Michele",
@@ -213,11 +220,14 @@ createApp({
         },
 
         sendMessageBack() {
+            const randomNum = Math.floor(Math.random() * this.answers.length);
+
             this.contacts[this.activeIndex].messages.push({
                 date: this.todayDate,
-                message: "ok",
+                message: this.answers[randomNum],
                 status: "received",
             });
+            console.log(randomNum);
         },
 
         removeContacts() {
