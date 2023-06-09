@@ -238,13 +238,18 @@
                                             type="text"
                                             placeholder="Scrivi un messaggio"
                                             class="w-100 p-2"
+                                            @click="swapIcons"
                                             v-model="newMsg"
                                             @keyup.enter="sendMessage" />
                                     </div>
                                     <div
                                         class="col h-100 d-flex justify-content-center align-items-center">
                                         <i
-                                            class="fa-solid fa-microphone fa-xl"></i>
+                                            class="fa-solid fa-microphone fa-xl"
+                                            :class="changeIcon ? 'disabled' : ''"></i>
+                                        <i
+                                            class="fa-solid fa-paper-plane fa-lg"
+                                            :class="changeIcon ? '' : 'disabled'"></i>
                                     </div>
                                 </div>
                             </div>

@@ -193,3 +193,8 @@ ul{
 ul.dropdown-menu{
     width: 300px;
 }
+
+.fa-microphone.disabled,
+.fa-paper-plane.disabled{
+    display:none;
+}

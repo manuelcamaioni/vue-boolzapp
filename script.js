@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            changeIcon: false,
             isOpen: false,
             activeIndex: 0,
             newMsg: "",
@@ -198,7 +199,6 @@ createApp({
                 this.newMsg = "";
 
                 setTimeout(this.sendMessageBack, 1000);
-                console.log(this.newMsg.trim().lenght);
             }
         },
 
@@ -252,6 +252,9 @@ createApp({
 
         closeAll() {
             this.isOpen = false;
+        },
+        swapIcons() {
+            this.changeIcon = true;
         },
     },
 }).mount("#app");
