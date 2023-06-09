@@ -141,35 +141,75 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="display-msg" class="w-100 px-3">
+                        <div
+                            id="display-msg"
+                            class="w-100 px-3"
+                            @click.capture="closeAll">
                             <div
                                 class="d-flex"
-                                v-for="(object, index) in contacts[activeIndex].messages"
-                                :class="(object.status === 'sent') ? 'user-message' : 'user-2-message'">
+                                v-for="(messageObj, index) in contacts[activeIndex].messages"
+                                :class="(messageObj.status === 'sent') ? 'user-message' : 'user-2-message'">
                                 <div
                                     class="mb-0 message d-flex"
-                                    :class="object.message.length === 0 ? 'd-none' : ''">
-                                    {{index === deleteAtIndex ? object.message =
-                                    '' : object.message}}
+                                    :class="messageObj.message.length === 0 ? 'd-none' : ''">
+                                    {{index === deleteAtIndex ?
+                                    messageObj.message = '' :
+                                    messageObj.message}}
                                     <span
                                         class="position-absolute timestamp-msg"
-                                        >{{visibleTimeStamp(object.date)}}</span
+                                        >{{visibleTimeStamp(messageObj.date)}}</span
                                     >
                                     <div class="dropdown position-absolute">
                                         <button
                                             class="dropdown-toggle bg-transparent"
                                             type="button"
-                                            data-bs-toggle="dropdown"
+                                            @click="closeAll"
+                                            :data-bs-toggle="!isOpen ? 'dropdown' : ''"
                                             aria-expanded="false"></button>
-                                        <ul
-                                            class="dropdown-menu dropdown-menu-dark">
+                                        <ul class="dropdown-menu">
                                             <li>
-                                                <a
-                                                    class="dropdown-item active"
-                                                    href="#"
-                                                    @click=""
-                                                    >Message info</a
-                                                >
+                                                <div
+                                                    class="accordion accordion-flush"
+                                                    id="accordionFlushExample">
+                                                    <div class="accordion-item">
+                                                        <h2
+                                                            class="accordion-header"
+                                                            id="flush-headingOne">
+                                                            <button
+                                                                class="accordion-button collapsed"
+                                                                type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#flush-collapseOne"
+                                                                aria-expanded="false"
+                                                                @click="staysOpen"
+                                                                aria-controls="flush-collapseOne">
+                                                                Message Info
+                                                            </button>
+                                                        </h2>
+                                                        <div
+                                                            id="flush-collapseOne"
+                                                            class="accordion-collapse collapse"
+                                                            aria-labelledby="flush-headingOne"
+                                                            data-bs-parent="#accordionFlushExample">
+                                                            <div
+                                                                class="accordion-body">
+                                                                <ul class="p-0">
+                                                                    <li>
+                                                                        Inviato:
+                                                                        {{visibleTimeStamp(messageObj.date)}}
+                                                                    </li>
+                                                                    <li>
+                                                                        Ultimo
+                                                                        messaggio:
+                                                                        {{contacts[activeIndex].messages[contacts[activeIndex].messages.length
+                                                                        -
+                                                                        1].message}}
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </li>
                                             <li>
                                                 <a

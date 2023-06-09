@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            isOpen: false,
             activeIndex: 0,
             newMsg: "",
             todayDate: new Date(),
@@ -235,6 +236,14 @@ createApp({
         },
         deleteMessage(index) {
             this.deleteAtIndex = index;
+        },
+
+        staysOpen() {
+            this.isOpen = true;
+        },
+
+        closeAll() {
+            this.isOpen = false;
         },
     },
 }).mount("#app");

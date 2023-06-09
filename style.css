@@ -185,3 +185,11 @@ div.dropdown{
     right: 3%;
     top: 1%;
 }
+
+ul{
+    list-style-type: none;
+}
+
+ul.dropdown-menu{
+    width: 300px;
+}
