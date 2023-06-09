@@ -239,6 +239,8 @@ createApp({
                         .includes(this.searchContact.toLowerCase())
                 ) {
                     contact.visible = true;
+                } else {
+                    contact.visible = false;
                 }
             });
         },
@@ -253,6 +255,9 @@ createApp({
         closeAll() {
             this.isOpen = false;
             this.changeIcon = false;
+            this.contacts.forEach((contact) => {
+                contact.visible = true;
+            });
         },
         swapIcons() {
             this.changeIcon = true;
