@@ -130,7 +130,8 @@
                                             v-if="!isWriting"
                                             class="minor-text"
                                             >Ultimo accesso oggi alle
-                                            12:00</span
+                                            {{visibleTimeStamp(contacts[activeIndex].messages[contacts[activeIndex].messages.length
+                                            - 1].date)}}</span
                                         >
                                         <span v-else class="minor-text"
                                             >Sta scrivendo...</span
