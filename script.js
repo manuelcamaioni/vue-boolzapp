@@ -252,6 +252,7 @@ createApp({
 
         closeAll() {
             this.isOpen = false;
+            this.changeIcon = false;
         },
         swapIcons() {
             this.changeIcon = true;
