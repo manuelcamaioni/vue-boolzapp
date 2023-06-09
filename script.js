@@ -184,14 +184,22 @@ createApp({
             this.activeIndex = index;
         },
         sendMessage() {
-            this.contacts[this.activeIndex].messages.push({
-                date: this.todayDate,
-                message: this.newMsg,
-                status: "sent",
-            });
-            this.newMsg = "";
+            if (
+                this.newMsg.length === 0 ||
+                (this.newMsg.length > 0 && this.newMsg.trim().length === 0)
+            ) {
+                return;
+            } else {
+                this.contacts[this.activeIndex].messages.push({
+                    date: this.todayDate,
+                    message: this.newMsg,
+                    status: "sent",
+                });
+                this.newMsg = "";
 
-            setTimeout(this.sendMessageBack, 1000);
+                setTimeout(this.sendMessageBack, 1000);
+                console.log(this.newMsg.trim().lenght);
+            }
         },
 
         visibleTimeStamp(date) {
