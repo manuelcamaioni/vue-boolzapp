@@ -15,7 +15,9 @@ body{
     #dadbd2 100%
 
 );
-
+display: flex;
+justify-content: center;
+align-items: center;
 height: 100vh;
 }
 
@@ -23,6 +25,9 @@ i{
     color: grey;
 }
 
+#app{
+    margin: 0;
+}
 
 #app{
     width: 1300px;
