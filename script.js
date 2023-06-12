@@ -192,16 +192,16 @@ createApp({
         selectContact(index) {
             this.activeIndex = index;
         },
-        sendMessage() {
+        sendMessage(msg, date) {
             if (
-                this.newMsg.length === 0 ||
-                (this.newMsg.length > 0 && this.newMsg.trim().length === 0)
+                msg.length === 0 ||
+                (msg.length > 0 && msg.trim().length === 0)
             ) {
                 return;
             } else {
                 this.contacts[this.activeIndex].messages.push({
-                    date: this.todayDate,
-                    message: this.newMsg,
+                    date: date,
+                    message: msg,
                     status: "sent",
                 });
                 this.newMsg = "";

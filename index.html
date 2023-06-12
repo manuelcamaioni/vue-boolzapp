@@ -249,7 +249,7 @@
                                             class="w-100 p-2"
                                             @click="swapIcons"
                                             v-model="newMsg"
-                                            @keyup.enter="sendMessage" />
+                                            @keyup.enter="sendMessage(newMsg, todayDate)" />
                                     </div>
                                     <div
                                         class="col h-100 d-flex justify-content-center align-items-center">
@@ -259,7 +259,7 @@
                                         <i
                                             class="fa-solid fa-paper-plane fa-lg"
                                             :class="changeIcon && newMsg.length >= 1 ? '' : 'disabled'"
-                                            @click="sendMessage"></i>
+                                            @click="sendMessage(newMsg, todayDate)"></i>
                                     </div>
                                 </div>
                             </div>
